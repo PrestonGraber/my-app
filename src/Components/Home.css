@@ -1,0 +1,125 @@
+.Home{
+    position: relative;
+    min-height: 100vh;
+}
+.bg{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    user-select: none;
+}
+.bg img{
+ height: 100%;
+ width: 100%;
+ animation: glow 5s ease 0s infinite;
+}
+@keyframes glow {
+    0%,
+    100%{
+        filter: saturate(0.75);
+    }
+    50%,60%{
+        filter: saturate(2);
+    }
+}
+.bg::after{
+    position: absolute;
+    content: "";
+    background-color: rgba(0,0,0,0.8);
+    height: 100%;
+    width: 100%;
+    animation: bright 1s ease-out 0.6s forwards;
+}
+@keyframes bright{
+    to{
+        background-color: rgba(0,0,0,0.375);
+    }
+}
+.content{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 60px;
+    padding: 0 15px;
+    cursor: default;
+}
+.content h1{
+    color: white;
+    font-family: "Nova Oval", cursive;
+    font-size: 80px;
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    transform: translateY(100px);
+    animation: reveal 1s ease-out 2.5s forwards;
+}
+.content h1 p{
+    margin-top: 15px;
+    font-size: 30px;
+}
+@keyframes reveal{
+    to{
+        height: 300px;
+        transform: translateY(0);
+    }
+}
+.content h1 c{
+    -webkit-text-stroke: 2px var(--clr-pri);
+    color: transparent;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 100px;
+    
+    
+}
+.content h1 d{
+    background: linear-gradient(60deg, var(--clr-pri), var(--clr-sec));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 55px;
+    background-clip: text;
+    text-shadow: 0px 0px 3px rgba(249, 0, 0, 0.1);
+   font-family: "Nova round",cursive;
+}
+.content .show-me{
+    position: relative; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    padding: 19px 35px;
+    margin-left: 20px;
+    background-color: var(--clr-pri);
+    margin-top: 35px;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0;
+    user-select: none;
+    animation: show 2s ease 3s forwards;
+
+}
+.content .show-me:active{
+    transform: scale(0.99);
+}
+.content .show-me span{
+    color: white;
+    font-family: Nova Round, cursive;
+    font-size: 20px;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+@media screen and (min-width: 310px) and (max-width: 420px){
+    .bg{
+        width: 100vw;
+        height: 100vh;
+    }
+    .content h1{
+        font-size: 50px;
+    }
+}

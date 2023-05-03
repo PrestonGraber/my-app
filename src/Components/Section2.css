@@ -1,0 +1,123 @@
+.section2{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 80vw;
+    min-height: 100vh;
+    padding: 0 15px;
+    scroll-snap-align: start;
+}
+.section2 .text-content{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    width: 100%;
+}
+.text-content .text{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+.text-content .text h1{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    color: white;
+    font-size: 32px;
+    font-weight: 500;
+    padding: 10px 0;
+    opacity: 0;
+
+}
+.section2.active h1{
+    animation: show 1s ease 0.5s forwards;
+}
+.text h1 span{
+    position: relative;
+    justify-content: flex-start;
+    display: inline-flex;
+    font-family: Nova Oval,cursive ;
+    font-size: 45px;
+    background: linear-gradient(var(--clr-pri), var(--clr-sec));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+     height: 0; 
+}
+.section2.active .text-content .text1 h1 span{
+    animation: animate-started 1s ease 1.3s forwards;
+}
+@keyframes animate-started{
+    to{
+        height: 48px;
+    }
+}
+.text- h1 span::before{
+    background: linear-gradient( 50deg, var(--clr-pri), var(--clr-sec));
+    bottom: 0;
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 0;
+}
+
+.section2:active .text h1 span::before{
+    animation: expand 1s ease 1.2s forwards;
+}
+
+.text-content .text h2{
+    border-left: 1px solid rgba(255, 255, 255, 0.868);
+    color: white;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+    margin-top: 5px;
+    padding: 20px 15px;
+    position: relative;
+    font-family: Trispace, sans-serif;
+    opacity: 0;
+}
+.section2.active .text h2{
+    animation: show 1s ease 1.9s forwards;
+}
+.section2.active .text-content .text2 h1 span{
+    animation: animate-exp 1s ease 1.3s forwards;
+}
+@keyframes animate-exp{
+    to{
+        height: 54px;
+    }
+}
+@media screen and (min-width: 310px) and (max-width: 420px){
+    .section2{
+        display: flex;
+        align-items: center;
+        margin-left: 30px;
+    }
+    .text-content .text h2{
+        border: none;
+        margin: -10px 10px;
+    }
+    .section2 .text-content{
+        margin: 5px;
+    }
+    .section2 .text-content h2{
+        padding-left: 200px;
+        font-size: 16px;
+    }
+    .section2 .text1 h1 span{
+      position: absolute;
+      right: 5%;
+      top: 60%;
+        font-size: 40px;
+    }
+}
